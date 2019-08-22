@@ -51,7 +51,7 @@
 import fixtures from '../../data/fixtures';
 
 export default {
-  name: 'ViewCategories',
+  name: 'Categories',
   data() {
     return {
       categories: fixtures.categories,
