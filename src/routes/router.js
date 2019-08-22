@@ -19,6 +19,7 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
     },
+    // categories
     {
       path: '/categories',
       name: 'categories',
@@ -33,6 +34,22 @@ export default new Router({
       path: '/categories/:id/edit',
       name: 'editCategories',
       component: () => import('../views/CreateCategory.vue'),
+    },
+    // posts
+    {
+      path: '/posts',
+      name: 'posts',
+      component: () => import('../views/PostList.vue'),
+    },
+    {
+      path: '/categories/:categoryId/posts/new',
+      name: 'createPosts',
+      component: () => import('../views/CreatePost.vue'),
+    },
+    {
+      path: '/categories/:categoryId/posts/:postId/edit',
+      name: 'editPosts',
+      component: () => import('../views/CreatePost.vue'),
     },
   ],
 });
