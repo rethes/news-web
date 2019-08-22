@@ -1,5 +1,6 @@
-# news-web
-This web application serves as a convenient window for recording and viewing news articles
+# News-Web
+This web application serves as a convenient window for recording and viewing news articles.
+Checkout [My News-Web](https://news-web-2019.herokuapp.com/) here.
 
 # Table of Contents
 
