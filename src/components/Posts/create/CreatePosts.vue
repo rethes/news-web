@@ -5,7 +5,7 @@
         <img src="../../../assets/images/Album-create.svg"/>
       </div>
       <div class="post-creation">
-        <div class="form-content">
+        <div class="form-content" v-if="categoryTitle">
           <h1 class="form-title"> Category: {{ categoryTitle }} </h1>
           <label for="title" class="label">Title:</label>
           <input
@@ -43,7 +43,6 @@
 // third-party libraries
 import moment from 'moment';
 import cuid from 'cuid';
-
 // data
 import fixtures from '../../../data/fixtures';
 
@@ -56,13 +55,14 @@ export default {
       title: '',
       description: '',
       categoryId: '',
-      categoryTitle: 'General News',
+      categoryTitle: '',
       isUpdating: false,
     };
   },
   async created() {
     this.isUpdating = this.$router.history.current.fullPath.includes('/edit');
     this.categoryId = this.$route.params.categoryId;
+    this.categoryTitle = await this.getACategory().title;
   },
   methods: {
     onInputChange(event) {
@@ -121,6 +121,11 @@ export default {
       this.description = '';
       this.isUpdating = false;
       this.$router.push('/posts');
+    },
+
+    getACategory() {
+      const numberId = Number(this.categoryId);
+      return this.categories.find(category => category.id === numberId);
     },
   },
 };
