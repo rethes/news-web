@@ -54,7 +54,7 @@ const posts = [
     updatedAt: '2019-03-22T19:56:16.127Z',
   },
   {
-    id: '4',
+    id: '5',
     title: 'You are here nor there',
     description: 'This calls for a CSS component. A CSS component is a style or collection of styles'
       + ' which we can apply using classes, often on top of a few different types of HTML elements. '
@@ -75,7 +75,7 @@ const posts = [
 const categories = [
   {
     id: 1,
-    title: 'General News',
+    title: 'General',
     createdAt: '2019-03-07T08:08:03.326Z',
     updatedAt: '2019-03-07T08:08:03.326Z',
   },

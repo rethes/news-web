@@ -42,6 +42,11 @@ export default new Router({
       component: () => import('../views/PostList.vue'),
     },
     {
+      path: '/categories/:categoryId/posts',
+      name: 'categoryPosts',
+      component: () => import('../views/CategoryPosts.vue'),
+    },
+    {
       path: '/categories/:categoryId/posts/new',
       name: 'createPosts',
       component: () => import('../views/CreatePost.vue'),
