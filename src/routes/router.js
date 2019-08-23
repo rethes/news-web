@@ -27,7 +27,7 @@ export default new Router({
     },
     {
       path: '/categories/new',
-      name: 'newCategories',
+      name: 'createCategories',
       component: () => import('../views/CreateCategory.vue'),
     },
     {
@@ -50,6 +50,11 @@ export default new Router({
       path: '/categories/:categoryId/posts/:postId/edit',
       name: 'editPosts',
       component: () => import('../views/CreatePost.vue'),
+    },
+    {
+      path: '/posts/:postId',
+      name: 'postView',
+      component: () => import('../views/PostView.vue'),
     },
   ],
 });
