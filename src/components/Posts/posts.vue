@@ -10,31 +10,8 @@
         </router-link>
       </div>
     </div>
-    <div class="posts-list-content" v-if="posts.length > 0">
-      <ul v-for="post in posts" :key="post.id">
-        <router-link :to="`/posts/${post.id}`" class="posts-list-links">
-         <div class="posts-list-content-items">
-          <div class="create-img">
-            <img src="../../assets/images/Album-create.svg"/>
-          </div>
-          <div class="posts-list-content-values">
-            <div class="posts-list-content-header">{{ post.title }}</div>
-            <div class="posts-list-content-description">
-              {{ post.description }}
-            </div>
-            <div class="posts-list-content-author">
-              <div class="user-img">
-                <img :src="post.author.image" />
-              </div>
-              <span class="user-name">
-                {{ post.author.name }}
-              </span>
-            </div>
-          </div>
-        </div>
-        </router-link>
-      </ul>
-    </div>
+
+    <Post-list-content :posts="posts" v-if="posts.length > 0"/>
     <div v-else>
       <h3 class="posts-list-heading"> No Articles Found </h3>
     </div>
@@ -44,7 +21,7 @@
     </div>
     <div class="posts-list-content" v-if="bin.length > 0">
       <ul v-for="archivedPost in bin" :key="archivedPost.id">
-        <div class="posts-list-content-items">
+        <li class="posts-list-content-items">
           <div class="create-img">
             <img src="../../assets/images/Album-create.svg"/>
           </div>
@@ -52,7 +29,7 @@
             <div class="posts-list-content-header">{{ archivedPost.title }}</div>
             {{ archivedPost.description }}
           </div>
-        </div>
+        </li>
       </ul>
     </div>
     <div v-else>
@@ -62,11 +39,15 @@
 </template>
 
 <script>
+import PostListContent from '../common/postListContent.vue';
 // data
 import fixtures from '../../data/fixtures';
 
 export default {
   name: 'Posts',
+  components: {
+    PostListContent,
+  },
   data() {
     return {
       posts: fixtures.posts,

@@ -97,7 +97,7 @@ export default {
         this.title = '';
         this.description = '';
         // redirect to view all posts
-        this.$router.push('/posts');
+        this.$router.push(`/categories/${this.categoryId}/posts`);
       } else {
         const editedPost = {
           id: this.postId,
