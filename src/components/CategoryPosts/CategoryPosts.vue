@@ -2,7 +2,7 @@
   <div class="posts-list">
 
     <div class="posts-list-header-row">
-      <h1 class="posts-list-heading"> List Of {{  categoryPosts.length }} Articles </h1>
+      <h1 class="posts-list-heading"> {{categoryTitle}} ({{categoryPosts.length}}) </h1>
       <div class="action-buttons">
         <router-link :to="`/categories/${categoryId}/posts/new`">
           <button class="action-buttons__add">
@@ -36,16 +36,22 @@ export default {
       categories: fixtures.categories,
       categoryId: '',
       categoryPosts: [],
+      categoryTitle: '',
     };
   },
   async created() {
     this.categoryId = this.$route.params.categoryId;
     this.categoryPosts = await this.getPosts();
+    this.categoryTitle = this.getACategory().title;
   },
   methods: {
     // Get the posts for the particular category
     getPosts() {
       return this.posts.filter(post => Number(post.categoryId) === Number(this.categoryId));
+    },
+
+    getACategory() {
+      return this.categories.find(category => Number(category.id) === Number(this.categoryId));
     },
   },
 };
