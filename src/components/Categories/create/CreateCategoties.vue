@@ -12,7 +12,7 @@
           id="title"
           name="title"
           :placeholder="!isUpdating ? 'Add a title' : ''"
-          :value="isUpdating ? title : ''"
+          :value="isUpdating ? selectedCategory.title : ''"
           @change="onInputChange"
         />
         <div class="submit-clear-btn">
@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       categories: fixtures.categories,
-      title: '',
+      selectedCategory: [],
       categoryId: '',
       isUpdating: false,
     };
@@ -50,7 +50,7 @@ export default {
     this.categoryId = this.$route.params.id;
 
     if (this.isUpdating === true) {
-      this.title = await this.selectedCategory();
+      this.selectedCategory = await this.getACategory();
     }
   },
   methods: {
@@ -76,31 +76,29 @@ export default {
         this.$router.push('/categories');
       } else {
         const editedCategory = {
-          id: this.categoryId,
+          id: this.selectedCategory.id,
           title: this.title,
-          createdAt: moment().format(),
+          createdAt: this.selectedCategory.createdAt,
           updatedAt: moment().format(),
         };
-
         // ..old category index
-        const index = this.categories.findIndex(category => category.id === this.categoryId);
+        const index = this.categories.findIndex(
+          category => Number(category.id) === Number(this.categoryId),
+        );
         // add the new category and remove the old
         this.categories.splice(index, 1, editedCategory);
         this.$router.push('/categories');
       }
     },
 
-    async selectedCategory() {
-      const getACategory = await this.categories.find(
-        category => category.id === this.categoryId,
-      );
-      return getACategory && getACategory.title;
-    },
-
     onReset() {
       this.title = '';
       this.isUpdating = false;
       this.$router.push('/categories');
+    },
+
+    getACategory() {
+      return this.categories.find(category => Number(category.id) === Number(this.categoryId));
     },
   },
 };
