@@ -13,7 +13,7 @@
             id="title"
             name="title"
             :placeholder="!isUpdating ? 'Add a title' : ''"
-            :value="isUpdating ? title : ''"
+            :value="isUpdating ? selectedPost.title : ''"
             @change="onInputChange"
           />
           <label for="description" class="label">Description:</label>
@@ -22,7 +22,7 @@
             id="description"
             name="description"
             :placeholder="!isUpdating ? 'Add a description' : ''"
-            :value="isUpdating ? description : ''"
+            :value="isUpdating ? selectedPost.description : ''"
             @change="onInputChange"
           >
           </textarea>
@@ -52,8 +52,8 @@ export default {
     return {
       posts: fixtures.posts,
       categories: fixtures.categories,
-      title: '',
-      description: '',
+      postId: '',
+      selectedPost: [],
       categoryId: '',
       categoryTitle: '',
       isUpdating: false,
@@ -62,7 +62,9 @@ export default {
   async created() {
     this.isUpdating = this.$router.history.current.fullPath.includes('/edit');
     this.categoryId = this.$route.params.categoryId;
+    this.postId = this.$route.params.postId;
     this.categoryTitle = await this.getACategory().title;
+    this.selectedPost = this.getPost();
   },
   methods: {
     onInputChange(event) {
@@ -82,11 +84,11 @@ export default {
         const newPost = {
           id: cuid(),
           title: this.title,
+          description: this.description,
           author: {
             name: 'Sasha Hanks',
             image: 'https://res.cloudinary.com/do8ik6qe5/image/upload/v1553545763/todo-app/2019-03-25T20:29:21.742Z.jpg',
           },
-          description: this.description,
           categoryId: this.categoryId,
           createdAt: moment().format(),
           updatedAt: moment().format(),
@@ -100,19 +102,22 @@ export default {
         this.$router.push(`/categories/${this.categoryId}/posts`);
       } else {
         const editedPost = {
-          id: this.postId,
-          categoryId: this.categoryId,
+          id: this.selectedPost.id,
           title: this.title,
           description: this.description,
-          createdAt: moment().format(),
+          author: {
+            name: this.selectedPost.author.name,
+            image: this.selectedPost.author.image,
+          },
+          categoryId: this.selectedPost.categoryId,
+          createdAt: this.selectedPost.createdAt,
           updatedAt: moment().format(),
         };
-
         // ..old post index
         const index = this.posts.findIndex(post => post.id === this.postId);
         // add the new post and remove the old
-        this.post.splice(index, 1, editedPost);
-        this.$router.push('/posts');
+        this.posts.splice(index, 1, editedPost);
+        this.$router.push(`/categories/${this.categoryId}/posts`);
       }
     },
 
@@ -120,12 +125,15 @@ export default {
       this.title = '';
       this.description = '';
       this.isUpdating = false;
-      this.$router.push('/posts');
+      this.$router.push(`/posts/${this.postId}`);
     },
 
     getACategory() {
-      const numberId = Number(this.categoryId);
-      return this.categories.find(category => category.id === numberId);
+      return this.categories.find(category => Number(category.id) === Number(this.categoryId));
+    },
+
+    getPost() {
+      return this.posts.find(post => Number(post.id) === Number(this.postId));
     },
   },
 };
