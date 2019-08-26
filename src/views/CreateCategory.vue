@@ -4,7 +4,7 @@
 
 <script>
 // components
-import CreateCategories from '../components/Categories/create/CreateCategoties.vue';
+import CreateCategories from '../components/Categories/create/CreateCategories.vue';
 
 export default {
   name: 'createCategories',

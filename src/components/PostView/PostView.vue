@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="post-container-grid">
-      <div class="post-container-grid-main"  v-if="selectedPost && selectedPost.author">
+      <div class="post-container-grid-main" v-if="selectedPost && selectedPost.author">
         <header class="post-article-header">
           <div class="post-article-breadcrumbs">
             <router-link class="posts-list-links" :to="`/categories/${categoryId}/posts`">
@@ -28,7 +28,7 @@
           </div>
           <h1 class="posts-article-heading"> {{ selectedPost.title }} </h1>
           <div class="post-article-author">
-            <img class="post-article-author__user-img" :src="selectedPost.author.image" />
+            <img class="post-article-author__user-img" :src="selectedPost.author.image"/>
             <div class="post-article-author-info">
               <span class="post-article-author-info__user-name">
                   {{ selectedPost.author.name }}
@@ -45,10 +45,10 @@
           </div>
           <div class="posts-article-share-buttons share-buttons">
             <router-link :to="`/categories`">
-              <button class="share-buttons__copy"> Copy </button>
+              <button class="share-buttons__copy"> Copy</button>
             </router-link>
             <router-link :to="`/categories`">
-              <button class="share-buttons__twitter"> Tweet </button>
+              <button class="share-buttons__twitter"> Tweet</button>
             </router-link>
           </div>
         </header>
@@ -59,10 +59,10 @@
           </p>
         </div>
       </div>
-      <div class="post-container-grid-main"  v-else>
-        <h1 class="posts-article-heading"> </h1>
+      <div class="post-container-grid-main" v-else>
+        <h1 class="posts-article-heading"></h1>
         Currently Experiencing Difficulties
-        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -83,6 +83,7 @@ export default {
       postId: '',
       categoryId: '',
       categoryTitle: '',
+      bin: [],
     };
   },
   async created() {
@@ -101,12 +102,13 @@ export default {
       return this.categories.find(category => category.id === this.categoryId);
     },
     // return custom date format
-    postTimestamp: postTime => moment(postTime).format('LLL Z'),
+    postTimestamp: postTime => moment(postTime)
+      .format('LLL Z'),
     // function to delete data
     remove(PostId) {
       const index = this.posts.findIndex(post => post.id === PostId);
       this.posts.splice(index, 1);
-      this.$router.push('/posts');
+      this.$router.go(-1);
     },
     // function to send data to bin
     archive(selectedPostId) {
@@ -114,6 +116,7 @@ export default {
       const archivePost = this.posts[index];
       this.bin.push(archivePost);
       this.posts.splice(index, 1);
+      this.$router.push('/posts');
     },
   },
 };
