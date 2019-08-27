@@ -4,7 +4,7 @@
     <div class="create-img">
       <img src="../../../assets/images/Album-create.svg"/>
     </div>
-    <div class="category-creation">
+    <div class="category-creation" v-if="selectedCategory">
       <div class="form-content">
         <label for="title" class="label">Title:</label>
         <input
@@ -72,8 +72,9 @@ export default {
         };
 
         this.categories.push(newCategory);
-        this.title = '';
         this.$router.push('/categories');
+        this.$toastr.success('created successfully', `${this.title}`);
+        this.title = '';
       } else {
         const editedCategory = {
           id: this.selectedCategory.id,
@@ -83,11 +84,12 @@ export default {
         };
         // ..old category index
         const index = this.categories.findIndex(
-          category => Number(category.id) === Number(this.categoryId),
+          category => category.id === this.categoryId,
         );
         // add the new category and remove the old
         this.categories.splice(index, 1, editedCategory);
         this.$router.push('/categories');
+        this.$toastr.success('Category successfully updated');
       }
     },
 
@@ -98,7 +100,7 @@ export default {
     },
 
     getACategory() {
-      return this.categories.find(category => Number(category.id) === Number(this.categoryId));
+      return this.categories.find(category => category.id === this.categoryId);
     },
   },
 };

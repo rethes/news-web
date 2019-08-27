@@ -100,6 +100,7 @@ export default {
         this.description = '';
         // redirect to view all posts
         this.$router.push(`/categories/${this.categoryId}/posts`);
+        this.$toastr.success('News Article successfully created');
       } else {
         const editedPost = {
           id: this.selectedPost.id,
@@ -118,6 +119,7 @@ export default {
         // add the new post and remove the old
         this.posts.splice(index, 1, editedPost);
         this.$router.push(`/categories/${this.categoryId}/posts`);
+        this.$toastr.success('News Article successfully updated');
       }
     },
 
