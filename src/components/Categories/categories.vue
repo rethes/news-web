@@ -73,6 +73,7 @@ export default {
 
       const index = this.categories.findIndex(category => category.id === selectedCategoryId);
       this.categories.splice(index, 1);
+      this.$toastr.success('Category successfully deleted');
     },
   },
 };

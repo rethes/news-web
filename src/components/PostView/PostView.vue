@@ -10,10 +10,10 @@
         <router-link :to="`/categories/${categoryId}/posts/${postId}/edit`">
           <button class="action-buttons__edit"> Edit </button>
         </router-link>
-        <button @click="archive(postId)" class="action-buttons__archive">
+        <button @click="archive(selectedPost)" class="action-buttons__archive">
           Archive
         </button>
-        <button @click="remove(postId)" class="action-buttons__delete">
+        <button @click="remove(selectedPost)" class="action-buttons__delete">
           Delete
         </button>
       </div>
@@ -105,18 +105,21 @@ export default {
     postTimestamp: postTime => moment(postTime)
       .format('LLL Z'),
     // function to delete data
-    remove(PostId) {
-      const index = this.posts.findIndex(post => Number(post.id) === Number(PostId));
+    remove(selectedPost) {
+      const index = this.posts.findIndex(post => Number(post.id) === Number(selectedPost.id));
       this.posts.splice(index, 1);
       this.$router.go(-1);
+      this.$toastr.info('deleted successfully', `${selectedPost.title}`);
     },
     // function to send data to bin
-    archive(selectedPostId) {
-      const index = this.posts.findIndex(post => Number(post.id) === Number(selectedPostId));
+    archive(selectedPost) {
+      const index = this.posts.findIndex(post => Number(post.id) === Number(selectedPost.id));
       const archivePost = this.posts[index];
+
       this.bin.push(archivePost);
       this.posts.splice(index, 1);
       this.$router.push('/posts');
+      this.$toastr.info('archived successfully', `${selectedPost.title}`);
     },
   },
 };
