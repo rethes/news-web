@@ -23,6 +23,7 @@
         <div class="categories-table-values">
           <router-link :to="`/categories/${category.id}/posts`" class="categories-table-links">
             {{ category.title }}
+
           </router-link>
         </div>
         <div class="categories-table-values action-buttons">
@@ -64,10 +65,10 @@ export default {
   methods: {
     // function to delete data
     remove(selectedCategoryId) {
-      // find all post without the index
-      const childPosts = this.posts.filter(post => post.categoryId !== selectedCategoryId);
-
-      // assign them to a new array.
+      // find all category post with the index
+      const childPosts = this.posts.filter(
+        post => Number(post.categoryId) === Number(selectedCategoryId),
+      );
       this.remainingPosts.push(childPosts);
 
       const index = this.categories.findIndex(category => category.id === selectedCategoryId);

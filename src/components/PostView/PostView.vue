@@ -95,24 +95,24 @@ export default {
   methods: {
     // Get the post
     getPost() {
-      return fixtures.posts.find(post => post.id === this.postId);
+      return fixtures.posts.find(post => Number(post.id) === Number(this.postId));
     },
     // Get category
     getCategory() {
-      return this.categories.find(category => category.id === this.categoryId);
+      return this.categories.find(category => Number(category.id) === Number(this.categoryId));
     },
     // return custom date format
     postTimestamp: postTime => moment(postTime)
       .format('LLL Z'),
     // function to delete data
     remove(PostId) {
-      const index = this.posts.findIndex(post => post.id === PostId);
+      const index = this.posts.findIndex(post => Number(post.id) === Number(PostId));
       this.posts.splice(index, 1);
       this.$router.go(-1);
     },
     // function to send data to bin
     archive(selectedPostId) {
-      const index = this.posts.findIndex(post => post.id === selectedPostId);
+      const index = this.posts.findIndex(post => Number(post.id) === Number(selectedPostId));
       const archivePost = this.posts[index];
       this.bin.push(archivePost);
       this.posts.splice(index, 1);
