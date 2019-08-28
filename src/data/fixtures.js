@@ -3,7 +3,7 @@ const posts = [
     id: '1',
     title: 'Hong Kong Protesters Are Worried About Facial Recognition Technology. But There Are Many Other Ways They are Being Watched.',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. In ornare quam viverra orci sagittis. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Cras ornare arcu dui vivamus arcu felis. Proin nibh nisl condimentum id venenatis a condimentum vitae sapien. Nisi scelerisque eu ultrices vitae auctor eu. Eu sem integer vitae justo eget magna fermentum iaculis eu. Gravida cum sociis natoque penatibus et magnis dis parturient montes. Tristique senectus et netus et malesuada fames ac. Non arcu risus quis varius. At urna condimentum mattis pellentesque id nibh tortor id. Cras adipiscing enim eu turpis egestas pretium aenean. Sed risus ultricies tristique nulla aliquet enim tortor at.',
-    categoryId: '1',
+    categoryId: '5',
     author: {
       name: 'Sasha Hanks',
       image: 'https://res.cloudinary.com/do8ik6qe5/image/upload/v1553545763/todo-app/2019-03-25T20:29:21.742Z.jpg',
@@ -33,7 +33,7 @@ const posts = [
       + 'malesuada nunc vel. Eget arcu dictum varius duis. Nulla aliquet enim tortor at auctor urna'
       + ' nunc id cursus. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Integer'
       + ' feugiat scelerisque varius morbi enim nunc faucibus a.',
-    categoryId: '1',
+    categoryId: '2',
     author: {
       name: 'Tom Hanks',
       image: 'https://res.cloudinary.com/do8ik6qe5/image/upload/v1553549313/todo-app/2019-03-25T21:28:25.680Z.png',
@@ -55,14 +55,14 @@ const posts = [
   },
   {
     id: '5',
-    title: 'You are here nor there',
+    title: 'Lorem Ipsum Generator, Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!',
     description: 'This calls for a CSS component. A CSS component is a style or collection of styles'
       + ' which we can apply using classes, often on top of a few different types of HTML elements. '
       + 'You may be familiar with this concept from CSS frameworks like Bootstrap or Foundation.'
       + 'This calls for a CSS component. A CSS component is a style or collection of styles which we '
       + 'can apply using classes, often on top of a few different types of HTML elements. You may be'
       + ' familiar with this concept from CSS frameworks like Bootstrap or Foundation.',
-    categoryId: '1',
+    categoryId: '3',
     author: {
       name: 'Julia Reinstein',
       image: 'https://resizing.flixster.com/KTWpfcuLuaAeZelLpy_d89w-x2Q=/300x300/v1.cjs1MDIyNTtqOzE4MTM1OzEyMDA7MjI4NzszMDAw',

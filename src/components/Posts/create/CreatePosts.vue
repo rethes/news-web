@@ -131,11 +131,11 @@ export default {
     },
 
     getACategory() {
-      return this.categories.find(category => Number(category.id) === Number(this.categoryId));
+      return this.categories.find(category => category.id === this.categoryId);
     },
 
     getPost() {
-      return this.posts.find(post => Number(post.id) === Number(this.postId));
+      return this.posts.find(post => post.id === this.postId);
     },
   },
 };

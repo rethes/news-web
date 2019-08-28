@@ -61,7 +61,7 @@
       </div>
       <div class="post-container-grid-main" v-else>
         <h1 class="posts-article-heading"></h1>
-        Currently Experiencing Difficulties
+        Article Not Found
       </div>
     </div>
   </div>
@@ -95,31 +95,30 @@ export default {
   methods: {
     // Get the post
     getPost() {
-      return fixtures.posts.find(post => Number(post.id) === Number(this.postId));
+      return this.posts.find(post => post.id === this.postId);
     },
     // Get category
     getCategory() {
-      return this.categories.find(category => Number(category.id) === Number(this.categoryId));
+      return this.categories.find(category => category.id === this.categoryId);
     },
     // return custom date format
-    postTimestamp: postTime => moment(postTime)
-      .format('LLL Z'),
+    postTimestamp: postTime => moment(postTime).format('LLL Z'),
     // function to delete data
     remove(selectedPost) {
-      const index = this.posts.findIndex(post => Number(post.id) === Number(selectedPost.id));
+      const index = this.posts.findIndex(post => post.id === selectedPost.id);
       this.posts.splice(index, 1);
       this.$router.go(-1);
-      this.$toastr.info('deleted successfully', `${selectedPost.title}`);
+      this.$toastr.success('deleted successfully', `${selectedPost.title}`);
     },
     // function to send data to bin
     archive(selectedPost) {
-      const index = this.posts.findIndex(post => Number(post.id) === Number(selectedPost.id));
+      const index = this.posts.findIndex(post => post.id === selectedPost.id);
       const archivePost = this.posts[index];
 
       this.bin.push(archivePost);
       this.posts.splice(index, 1);
       this.$router.push('/posts');
-      this.$toastr.info('archived successfully', `${selectedPost.title}`);
+      this.$toastr.success('archived successfully', `${selectedPost.title}`);
     },
   },
 };

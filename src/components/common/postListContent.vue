@@ -7,7 +7,13 @@
             <img src="../../assets/images/Album-create.svg"/>
           </div>
           <div class="posts-list-content-values">
-            <div class="posts-list-content-header">{{ post.title }}</div>
+            <div
+              class="posts-list-content-values__title">
+              {{categoryTitle}}
+            </div>
+            <div class="posts-list-content-header">
+              {{ post.title }}
+            </div>
             <div class="posts-list-content-description">
               {{ post.description }}
             </div>
@@ -18,6 +24,9 @@
               <span class="user-name">
                 {{ post.author.name }}
               </span>
+              <span class="article-timestamps" >
+              . {{ postTimestamp( post.updatedAt) }}
+              </span>
             </div>
           </div>
         </div>
@@ -27,8 +36,15 @@
 </template>
 
 <script>
+// third party libraries
+import moment from 'moment';
+
 export default {
-  props: { posts: Array },
+  props: { posts: Array, categoryTitle: String },
+  methods: {
+    // return custom date format
+    postTimestamp: postTime => moment(postTime).fromNow(),
+  },
 };
 </script>
 

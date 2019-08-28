@@ -35,7 +35,7 @@
           <router-link :to="`/categories/${category.id}/edit`">
             <button class="action-buttons__edit"> Edit </button>
           </router-link>
-          <button class="action-buttons__delete" @click="remove(category.id)">
+          <button class="action-buttons__delete" @click="remove(category)">
             Delete
           </button>
         </div>
@@ -55,25 +55,30 @@ export default {
   name: 'Categories',
   data() {
     return {
-      categories: fixtures.categories,
+      categories: [],
       posts: fixtures.posts,
       categoryId: '',
       isEditMode: false,
       remainingPosts: [],
     };
   },
+  async created() {
+    this.categories = fixtures.categories.sort(
+      (a, b) => (new Date(a.updatedAt) < new Date(b.updatedAt) ? 1 : -1),
+    );
+  },
   methods: {
     // function to delete data
-    remove(selectedCategoryId) {
+    remove(selectedCategory) {
       // find all category post with the index
       const childPosts = this.posts.filter(
-        post => Number(post.categoryId) === Number(selectedCategoryId),
+        post => post.categoryId === selectedCategory.id,
       );
       this.remainingPosts.push(childPosts);
 
-      const index = this.categories.findIndex(category => category.id === selectedCategoryId);
+      const index = this.categories.findIndex(category => category.id === selectedCategory.id);
       this.categories.splice(index, 1);
-      this.$toastr.success('Category successfully deleted');
+      this.$toastr.success('deleted successfully', `${selectedCategory.title}`);
     },
   },
 };
