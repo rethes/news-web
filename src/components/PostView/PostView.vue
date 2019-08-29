@@ -1,5 +1,5 @@
 <template>
-  <div id="post-container">
+  <div id="post-view-container">
     <div class="post-container-header-row">
       <div class="post-container-action-buttons action-buttons">
         <router-link :to="`/categories/1/posts/new`">
