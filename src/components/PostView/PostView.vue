@@ -127,5 +127,5 @@ export default {
 <!-- SASS styling -->
 <style lang="scss">
   @import "../../assets/scss/components/post-content.scss";
-  @import "../../assets/scss/components/action-buttons.scss";
+  @import "../../assets/scss/components/common/action-buttons";
 </style>

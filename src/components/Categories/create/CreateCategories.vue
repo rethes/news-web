@@ -1,10 +1,10 @@
 <template>
-  <div id="category-container">
+  <div class="category-container">
     <h1 class="form-title">{{ isUpdating ? 'Edit A Category' : 'Create A Category' }}</h1>
     <div class="create-img">
       <img src="../../../assets/images/Album-create.svg"/>
     </div>
-    <div class="category-creation" v-if="selectedCategory">
+    <div class="form-creation" v-if="selectedCategory">
       <div class="form-content">
         <label for="title" class="label">Title:</label>
         <input
@@ -109,4 +109,6 @@ export default {
 <!-- SASS styling -->
 <style lang="scss">
   @import "../../../assets/scss/components/create-category";
+  @import "../../../assets/scss/components/common/action-buttons";
+  @import "../../../assets/scss/components/common/form-creation";
 </style>

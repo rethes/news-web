@@ -1,106 +1,49 @@
-#post-container {
+.post-container {
   position: absolute;
   top: 6em;
-  display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
   margin-left: 15em;
-
-  .form-title {
-    color: #686868;
-    font-size: 22px;
-    padding: 1em 0;
-  }
-
-  .post-creation {
-    flex: 0 0 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding-bottom: 4em;
-
-    .form-content {
-      flex: 0 0 100%;
-    }
-
-
-    @media only screen and (max-width: 1020px) {
-      .form-content {
-        order: 2;
-      }
-    }
-
-    @media only screen and (min-width: 650px) {
-      .form-content {
-        flex: 0 0 44%;
-      }
-    }
-
-    @media only screen and (min-width: 1024px) {
-      .form-content {
-        flex: 0 0 35%;
-      }
-    }
-  }
-
-  .create-img {
-    flex: 0 0 100%;
-    text-align: center;
-  }
+  display: flex;
 }
 
 @media only screen and (min-width: 900px) {
-  #post-container {
+  .post-container {
     align-self: center;
     width: 80%;
   }
 }
 
-.form-content {
-  border-radius: 5px;
-  padding: 20px;
-}
-
 .label {
-  float: left;
   margin: 5px;
 }
 
-.input-fields {
-  width: 100%;
+.textarea-fields {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  line-height: 1.25rem;
 }
 
-.submit-clear-btn {
-  padding-top: 2em;
-  margin: 0;
-  text-align: right;
-}
-
-.create-btn {
-  margin: 0 .25em 0 0;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  border: none;
+.textarea-fields-edit {
+  border-style: none;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
   border-radius: 4px;
-  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 1.25rem;
 }
 
-.cancel-btn {
-  margin: 0 .25em 0 0;
-  background-color: #db2828;
-  color: white;
-  padding: 14px 20px;
-  border: none;
+.input-fields-edit {
+  border-style: none;
+  width: 100%;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
   border-radius: 4px;
-  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 1.25rem;
 }
