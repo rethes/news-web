@@ -11,7 +11,10 @@
       </div>
     </div>
 
-    <Post-list-content :posts="posts" v-if="posts.length > 0"/>
+    <Post-list-content
+      :posts="posts"
+      :categoryTitle="categoryTitle"
+      v-if="posts.length > 0"/>
     <div v-else>
       <h3 class="posts-list-heading"> No Articles Found </h3>
     </div>
@@ -50,12 +53,19 @@ export default {
   },
   data() {
     return {
-      posts: fixtures.posts,
+      posts: [],
       categories: fixtures.categories,
       categoryId: 1,
+      categoryTitle: 'Category Title',
       bin: [],
     };
   },
+  async created() {
+    this.posts = fixtures.posts.sort(
+      (a, b) => (new Date(a.updatedAt) < new Date(b.updatedAt) ? 1 : -1),
+    );
+  },
+
 };
 </script>
 

@@ -12,7 +12,10 @@
       </div>
     </div>
 
-    <Post-list-content :posts=" categoryPosts" v-if=" categoryPosts.length > 0"/>
+    <Post-list-content
+      :posts="categoryPosts"
+      :categoryTitle="null"
+      v-if=" categoryPosts.length > 0"/>
     <div v-else>
       <h3 class="posts-list-heading"> No Articles Found </h3>
     </div>
@@ -47,11 +50,16 @@ export default {
   methods: {
     // Get the posts for the particular category
     getPosts() {
-      return this.posts.filter(post => Number(post.categoryId) === Number(this.categoryId));
+      const categoryPosts = this.posts.filter(
+        post => post.categoryId === this.categoryId,
+      );
+      return categoryPosts.sort(
+        (a, b) => (new Date(a.updatedAt) < new Date(b.updatedAt) ? 1 : -1),
+      );
     },
 
     getACategory() {
-      return this.categories.find(category => Number(category.id) === Number(this.categoryId));
+      return this.categories.find(category => category.id === this.categoryId);
     },
   },
 };
