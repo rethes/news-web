@@ -13,7 +13,7 @@
 
     <Post-list-content
       :posts="posts"
-      :categoryTitle="categoryTitle"
+      :categories="categories"
       v-if="posts.length > 0"/>
     <div v-else>
       <h3 class="posts-list-heading"> No Articles Found </h3>
