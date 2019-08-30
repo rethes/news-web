@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/categories">Categories</router-link> |
-      <router-link to="/posts">News Articles</router-link>
+      <router-link to="/posts">News Articles</router-link> |
+      <router-link to="/trash">Trash</router-link>
     </div>
     <router-view/>
   </div>

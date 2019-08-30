@@ -1,39 +1,38 @@
 <template>
   <div class="categories-list">
     <div class="categories-list-header-row">
-      <h1 class="categories-list-heading"> List Of Categories </h1>
+      <h1 class="categories-list-heading"> List Of Categories ({{categories.length}}) </h1>
       <div class="action-buttons action-buttons">
-      <router-link :to="`/categories/new`">
-        <button class="action-buttons__add">
-          Add Category
-        </button>
-      </router-link>
+        <router-link :to="`/categories/new`">
+          <button class="action-buttons__add">
+            Add Category
+          </button>
+        </router-link>
       </div>
     </div>
-    <div class="categories-table" v-if="categories.length > 0">
-      <div class="categories-table-header">
-        <div class="categories-table-values">
+    <div class="table" v-if="categories.length > 0">
+      <div class="table-header">
+        <div class="table-values">
           <h3 class="h3-headings">Category Title</h3>
         </div>
-        <div class="categories-table-values">
+        <div class="table-values">
           <h3 class="h3-headings">Actions</h3>
         </div>
       </div>
-      <div class="categories-table-rows" v-for="category in categories" :key="category.id">
-        <div class="categories-table-values">
-          <router-link :to="`/categories/${category.id}/posts`" class="categories-table-links">
+      <div class="table-rows" v-for="category in categories" :key="category.id">
+        <div class="table-values">
+          <router-link :to="`/categories/${category.id}/posts`" class="table-links">
             {{ category.title }}
-
           </router-link>
         </div>
-        <div class="categories-table-values action-buttons">
+        <div class="table-values action-buttons">
           <router-link :to="`/categories/${category.id}/posts/new`">
             <button class="action-buttons__add">
               Add Posts
             </button>
           </router-link>
           <router-link :to="`/categories/${category.id}/edit`">
-            <button class="action-buttons__edit"> Edit </button>
+            <button class="action-buttons__edit"> Edit</button>
           </router-link>
           <button class="action-buttons__delete" @click="remove(category)">
             Delete
@@ -55,10 +54,10 @@ export default {
   name: 'Categories',
   data() {
     return {
-      categories: [],
       posts: fixtures.posts,
-      categoryId: '',
       isEditMode: false,
+      categoryId: '',
+      categories: [],
       remainingPosts: [],
     };
   },
@@ -85,6 +84,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../assets/scss/components/view-category.scss";
   @import "../../assets/scss/components/common/action-buttons";
+  @import "../../assets/scss/components/common/table.scss";
+  @import "../../assets/scss/components/common/global.scss";
+  @import "../../assets/scss/components/view-category.scss";
 </style>
