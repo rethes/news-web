@@ -86,5 +86,5 @@ export default {
 
 <style lang="scss">
   @import "../../assets/scss/components/view-category.scss";
-  @import "../../assets/scss/components/action-buttons.scss";
+  @import "../../assets/scss/components/common/action-buttons";
 </style>

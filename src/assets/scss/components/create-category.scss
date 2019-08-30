@@ -1,4 +1,4 @@
-#category-container {
+.category-container {
   position: absolute;
   top: 6em;
   display: flex;
@@ -7,99 +7,11 @@
   align-items: center;
   width: 100%;
   margin-left: 15em;
-
-  .form-title {
-    color: #686868;
-    font-size: 22px;
-    padding: 1em 0;
-  }
-
-  .category-creation {
-    flex: 0 0 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding-bottom: 4em;
-
-    .form-content {
-      flex: 0 0 100%;
-    }
-
-
-    @media only screen and (max-width: 1020px) {
-      .form-content {
-        order: 2;
-      }
-    }
-
-    @media only screen and (min-width: 650px) {
-      .form-content {
-        flex: 0 0 44%;
-      }
-    }
-
-    @media only screen and (min-width: 1024px) {
-      .form-content {
-        flex: 0 0 35%;
-      }
-    }
-  }
-
-  .create-img {
-    flex: 0 0 100%;
-    text-align: center;
-  }
 }
 
 @media only screen and (min-width: 900px) {
-  #category-container {
+  .category-container {
     align-self: center;
     width: 80%;
   }
-}
-
-.form-content {
-  border-radius: 5px;
-  padding: 20px;
-}
-
-.label {
-  float: left;
-}
-
-.input-fields {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.submit-clear-btn {
-  padding-top: 2em;
-  margin: 0;
-  text-align: right;
-}
-
-.create-btn {
-  margin: 0 .25em 0 0;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.cancel-btn {
-  margin: 0 .25em 0 0;
-  background-color: #db2828;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
