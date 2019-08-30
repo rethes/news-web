@@ -14,7 +14,7 @@
 
     <Post-list-content
       :posts="categoryPosts"
-      :categoryTitle="null"
+      :categories="null"
       v-if=" categoryPosts.length > 0"/>
     <div v-else>
       <h3 class="posts-list-heading"> No Articles Found </h3>

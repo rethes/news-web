@@ -7,9 +7,10 @@
             <img src="../../assets/images/Album-create.svg"/>
           </div>
           <div class="posts-list-content-values">
-            <div
-              class="posts-list-content-values__title">
-              {{categoryTitle}}
+            <div v-for="category in categories" :key="category.id">
+              <div v-if="category.id === post.categoryId" class="posts-list-content-values__title">
+                {{category.title}}
+              </div>
             </div>
             <div class="posts-list-content-header">
               {{ post.title }}
@@ -40,7 +41,7 @@
 import moment from 'moment';
 
 export default {
-  props: { posts: Array, categoryTitle: String },
+  props: { posts: Array, categories: Array },
   methods: {
     // return custom date format
     postTimestamp: postTime => moment(postTime).fromNow(),
