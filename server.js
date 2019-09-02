@@ -6,7 +6,12 @@ const app = express();
 
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
-const PORT = process.env.PORT || 8080;
+// Catch all routes and redirect to the index file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/dist/index.html'));
+});
+
+const PORT = process.env.PORT || 8081;
 
 app.listen(PORT, () => {
   console.log(`server running on the ${PORT}`);
