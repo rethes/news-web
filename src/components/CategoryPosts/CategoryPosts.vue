@@ -1,8 +1,7 @@
 <template>
   <div class="posts-list">
-
-    <div class="posts-list-header-row">
-      <h1 class="posts-list-heading"> {{categoryTitle}} ({{categoryPosts.length}}) </h1>
+    <div class="header-row">
+      <h1 class="h1-heading"> {{categoryTitle}} ({{categoryPosts.length}}) </h1>
       <div class="action-buttons">
         <router-link :to="`/categories/${categoryId}/posts/new`">
           <button class="action-buttons__add">
@@ -11,15 +10,13 @@
         </router-link>
       </div>
     </div>
-
     <Post-list-content
       :posts="categoryPosts"
       :categories="null"
       v-if=" categoryPosts.length > 0"/>
     <div v-else>
-      <h3 class="posts-list-heading"> No Articles Found </h3>
+      <h3 class="h3-heading"> No Articles Found </h3>
     </div>
-
   </div>
 </template>
 
@@ -66,6 +63,7 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "../../assets/scss/components/common/global.scss";
   @import "../../assets/scss/components/view-post.scss";
   @import "../../assets/scss/components/common/action-buttons";
 </style>

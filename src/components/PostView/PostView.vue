@@ -83,7 +83,7 @@ export default {
       postId: '',
       categoryId: '',
       categoryTitle: '',
-      bin: [],
+      bin: fixtures.articleTrash,
     };
   },
   async created() {
@@ -117,7 +117,7 @@ export default {
 
       this.bin.push(archivePost);
       this.posts.splice(index, 1);
-      this.$router.push('/posts');
+      this.$router.push('/trash');
       this.$toastr.success('archived successfully', `${selectedPost.title}`);
     },
   },

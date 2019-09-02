@@ -1,0 +1,42 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  display: table;
+}
+
+.table-header {
+  display: table-row;
+  text-align: left;
+}
+
+.table-value-right {
+  display: table-cell;
+  width: 85%;
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin: 10px;
+}
+
+.table-values {
+  display: table-cell;
+  width: 15%;
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin: 10px;
+}
+
+.table-rows {
+  display: table-row;
+  width: 100%;
+  text-align: left;
+}
+
+.table-rows:nth-of-type(2n+0) {
+  background-color: #f2f2f2;
+}
+
+.table-links {
+  color: #2c3e50;
+  text-decoration: none;
+  cursor: pointer;
+}

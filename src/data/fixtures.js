@@ -105,7 +105,45 @@ const categories = [
   },
 ];
 
+const articleTrash = [
+  {
+    id: '6',
+    title: 'Lorem Ipsum Generator, Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!',
+    description: 'This calls for a CSS component. A CSS component is a style or collection of styles'
+      + ' which we can apply using classes, often on top of a few different types of HTML elements. '
+      + 'You may be familiar with this concept from CSS frameworks like Bootstrap or Foundation.'
+      + 'This calls for a CSS component. A CSS component is a style or collection of styles which we '
+      + 'can apply using classes, often on top of a few different types of HTML elements. You may be'
+      + ' familiar with this concept from CSS frameworks like Bootstrap or Foundation.',
+    categoryId: '3',
+    author: {
+      name: 'Julia Reinstein the third',
+      image: 'https://resizing.flixster.com/KTWpfcuLuaAeZelLpy_d89w-x2Q=/300x300/v1.cjs1MDIyNTtqOzE4MTM1OzEyMDA7MjI4NzszMDAw',
+    },
+    createdAt: '2019-07-22T19:56:16.127Z',
+    updatedAt: '2019-07-22T19:56:16.127Z',
+  },
+  {
+    id: '7',
+    title: 'Lorem Ipsum Generator, Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!',
+    description: 'This calls for a CSS component. A CSS component is a style or collection of styles'
+      + ' which we can apply using classes, often on top of a few different types of HTML elements. '
+      + 'You may be familiar with this concept from CSS frameworks like Bootstrap or Foundation.'
+      + 'This calls for a CSS component. A CSS component is a style or collection of styles which we '
+      + 'can apply using classes, often on top of a few different types of HTML elements. You may be'
+      + ' familiar with this concept from CSS frameworks like Bootstrap or Foundation.',
+    categoryId: '3',
+    author: {
+      name: 'Julia Reinstein the second',
+      image: 'https://resizing.flixster.com/KTWpfcuLuaAeZelLpy_d89w-x2Q=/300x300/v1.cjs1MDIyNTtqOzE4MTM1OzEyMDA7MjI4NzszMDAw',
+    },
+    createdAt: '2019-06-22T19:56:16.127Z',
+    updatedAt: '2019-06-22T19:56:16.127Z',
+  },
+];
+
 export default {
   posts,
   categories,
+  articleTrash,
 };

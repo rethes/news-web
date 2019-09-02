@@ -61,5 +61,10 @@ export default new Router({
       name: 'postView',
       component: () => import('../views/PostView.vue'),
     },
+    {
+      path: '/trash',
+      name: 'trashPosts',
+      component: () => import('../views/ArchivedPosts.vue'),
+    },
   ],
 });
