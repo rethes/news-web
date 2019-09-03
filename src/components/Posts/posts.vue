@@ -1,7 +1,7 @@
 <template>
   <div class="posts-list">
     <div class="header-row">
-      <h1 class="h1-heading"> List Of {{ posts.length }} Articles </h1>
+      <h1 class="h1-heading"> Article List ({{ posts.length }})  </h1>
       <div class="action-buttons">
         <router-link :to="`/categories/${categoryId}/posts/new`">
           <button class="action-buttons__add">
