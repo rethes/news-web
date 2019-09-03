@@ -6,7 +6,6 @@ Checkout [My News-Web](https://news-web-2019.herokuapp.com/) here.
 
 - [Technology Stack](#technology-stack)
 - [Installation](#installation)
-- [Testing](#testing)
 
 ## Technology Stack
 
@@ -14,9 +13,6 @@ Checkout [My News-Web](https://news-web-2019.herokuapp.com/) here.
 - SCSS
 - NodeJS
 - Webpack
-- Jest
-- Enzyme
-- Semantic UI
 
 ## Installation
 
@@ -32,13 +28,6 @@ Checkout [My News-Web](https://news-web-2019.herokuapp.com/) here.
 6. To compiles and minimize for production run `npm run build`
 7. To start the application run `npm run serve`
 8. For lints and fixes files run `npm run lint`
-
-## Testing
-
-**Unit tests**
- - Run `npm run test:unit` on the terminal while within the **project root directory**. Unit testing is achieved through the use of `jest` package. `jest` is used to test javascript code in React applications.
- - Run `npm run test` on the terminal to run all the tests
-
 
 ### Support or Contribution
 

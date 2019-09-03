@@ -72,7 +72,7 @@ export default {
         };
 
         this.categories.push(newCategory);
-        this.$router.push('/categories');
+        this.$router.push('/');
         this.$toastr.success('created successfully', `${this.title}`);
         this.title = '';
       } else {
@@ -88,7 +88,7 @@ export default {
         );
         // add the new category and remove the old
         this.categories.splice(index, 1, editedCategory);
-        this.$router.push('/categories');
+        this.$router.push('/');
         this.$toastr.success('Category successfully updated');
       }
     },
@@ -96,7 +96,7 @@ export default {
     onReset() {
       this.title = '';
       this.isUpdating = false;
-      this.$router.push('/categories');
+      this.$router.push('/');
     },
 
     getACategory() {

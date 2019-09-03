@@ -44,10 +44,10 @@
             </p>
           </div>
           <div class="posts-article-share-buttons share-buttons">
-            <router-link :to="`/categories`">
+            <router-link :to="`/`">
               <button class="share-buttons__copy"> Copy</button>
             </router-link>
-            <router-link :to="`/categories`">
+            <router-link :to="`/`">
               <button class="share-buttons__twitter"> Tweet</button>
             </router-link>
           </div>
